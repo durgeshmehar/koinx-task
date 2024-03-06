@@ -2,5 +2,14 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #d1d1d1d0;
+  background-color: #ebebebd0;
 }
+
+
+  .scrollbar-hide {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari and Opera */
+  }
