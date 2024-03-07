@@ -38,8 +38,8 @@ export default function Navbar() {
                           className={classNames(
                             item.current
                               ? "bg-blue-700 text-white "
-                              : "text-black hover:bg-gray-200 hover:",
-                            "rounded-md px-3 py-2 text-sm font-medium"
+                              : "text-gray-800 hover:bg-gray-200 hover:",
+                            "rounded-md px-3 py-2 text-sm font-semibold"
                           )}
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -50,9 +50,9 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <div className="block sm:hidden inset-y-0 right-0 flex items-center sm:ml-6 sm:pr-0">
+                <div className="sm:hidden inset-y-0 right-0 flex items-center sm:ml-6 sm:pr-0">
                   {/* Bar open close */}
-                  <Disclosure.Button className=" inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-200 hover: focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className=" inline-flex items-center justify-center rounded-md p-2 text-gray-800 hover:bg-gray-200 hover: focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -76,8 +76,8 @@ export default function Navbar() {
                     className={classNames(
                       item.current
                         ? "bg-blue-700 text-white "
-                        : "text-black hover:bg-gray-200 hover:",
-                      "rounded-md px-3 py-2 text-sm font-medium"
+                        : "text-gray-800 hover:bg-gray-200 hover:",
+                      "rounded-md px-3 py-2 text-sm font-semibold"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >

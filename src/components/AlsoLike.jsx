@@ -2,8 +2,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaChartLine, FaNewspaper, FaBook } from "react-icons/fa";
-
 
 // Custom arrow components
 function SampleNextArrow(props) {
@@ -45,92 +43,338 @@ function SamplePrevArrow(props) {
   );
 }
 
-
 export default function AlsoLike() {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 380,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      }
+    ]
   };
 
   return (
-    <div className=" sm:absolute left-0 w-[100vw] p-4 mt-8 bg-red-300 ">
+    <div className="flex sm:px-10 flex-col gap-4 sm:absolute left-0 w-full sm:w-[100vw]  p-4 mt-8 bg-white">
       <p className="text-lg font-bold flex justify-start items-center">
         You May Also Like
       </p>
 
+      <div className="first h-30 ">
+        <Slider {...settings}>
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
 
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </Slider>
+      </div>
+
+      <div className="second h-30 ">
       <Slider {...settings}>
-            <div>
-              <div className="flex flex-row bg-[#e8f4fd] p-4 mr-2">
-                <div className=" w-8 bg-blue-600 h-8 flex justify-center items-center rounded-full mr-2">
-                  <FaChartLine className="w-8  text-white " />
-                </div>
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
 
-                <div className="inline-block w-[90%]">
-                  <p className="text-gray-900 mb-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!
-                  </p>
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
 
-                  <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Incidunt distinctio fugit
-                    minima!
-                  </p>
-                </div>
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
               </div>
             </div>
+          </div>
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
 
-            <div>
-              <div className="flex flex-row bg-[#ebf9f4] p-4 mr-2">
-                <div className=" w-8 bg-green-500 h-8 flex justify-center items-center rounded-full mr-2">
-                  <FaNewspaper className="w-8  text-white " />
-                </div>
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
 
-                <div className="inline-block w-[90%]">
-                  <p className="text-gray-900 mb-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!
-                  </p>
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
 
-                  <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Incidunt distinctio fugit
-                    minima!
-                  </p>
-                </div>
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
               </div>
             </div>
+          </div>
 
-            <div>
-              <div className="flex flex-row bg-[#f8f2f2] p-4 mr-2">
-                <div className=" w-8 bg-[#868181] h-8 flex justify-center items-center rounded-full mr-2">
-                  <FaBook className="w-8  text-white " />
-                </div>
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
 
-                <div className="inline-block w-[90%]">
-                  <p className="text-gray-900 mb-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!
-                  </p>
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
 
-                  <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt distinctio fugit minima!Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Incidunt distinctio fugit
-                    minima!
-                  </p>
-                </div>
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
               </div>
             </div>
-          </Slider>
+          </div>
+
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+
+              <div className="flex justify-start items-center gap-1 text-base ">
+                <img
+                  src="images/bitcoin.svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                  alt=""
+                />
+                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+
+                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
+                  {" "}
+                  2.52%
+                </p>
+              </div>
+
+              <div className="text-xs">
+                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
+              </div>
+
+              <div>
+                <img src="images/graph1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </Slider>
+      </div>
 
 
     </div>

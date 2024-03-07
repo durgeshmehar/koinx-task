@@ -38,7 +38,7 @@ function Bitcoin() {
   );
 
   return (
-    <div className="h-fit sm:h-[100vh] p-4 bg-white rounded-md">
+    <div className="h-fit sm:h-[85vh] lg:h-[95vh] p-4 bg-white rounded-md">
 
       <div className="h-[15vh]">
         <div className="flex justify-start items-center gap-5 text-base ">
@@ -66,7 +66,7 @@ function Bitcoin() {
 
       </div>
 
-      <div className="bg-no-repeat row-span-3 h-[80vw] sm:h-[75vh] mt-4 ">
+      <div className="bg-no-repeat row-span-3 h-[80vw] sm:h-[65vh] lg:h-[75vh] mt-1 sm:mt-4 ">
         <div className="tradingview-widget-container border-none" ref={container} style={{width: "100%",border:"none"}}>
         </div>
       </div>
