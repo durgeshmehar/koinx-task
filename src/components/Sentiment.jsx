@@ -70,7 +70,7 @@ export default function Sentiment() {
   return (
     <div className="h-fit p-4 mt-4 bg-white rounded-md">
       <div className="">
-        <p className="text-lg font-bold flex justify-start items-center">
+        <p className="text-lg  sm:text-xl font-bold flex justify-start items-center">
           {" "}
           Sentiment{" "}
         </p>

@@ -18,7 +18,7 @@ export default function Navbar() {
       <Disclosure as="nav" className="bg-white">
         {({ open }) => (
           <>
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="mx-[30px] sm:mx-[60px] sm:px-0 lg:px-0">
               <div className="relative flex h-16 items-center justify-between">
                 <div className="flex flex-1 items-center sm:items-stretch justify-between pl-4 sm:pl-0">
                   <div className="flex flex-shrink-0 items-center">
@@ -39,7 +39,7 @@ export default function Navbar() {
                             item.current
                               ? "bg-blue-700 text-white "
                               : "text-gray-800 hover:bg-gray-200 hover:",
-                            "rounded-md px-3 py-2 text-sm font-semibold"
+                            "rounded-md px-3 py-2 text-sm font-semibold whitespace-nowrap"
                           )}
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             {/* mobile options */}
             <Disclosure.Panel className="sm:hidden">
-              <div className="space-y-1 px-2 pb-3 pt-2 flex flex-col">
+              <div className="space-y-1 px-8  pb-3 pt-2 flex flex-col">
                 {navigation.map((item) => (
                   <Disclosure.Button
                     key={item.name}
@@ -77,7 +77,7 @@ export default function Navbar() {
                       item.current
                         ? "bg-blue-700 text-white "
                         : "text-gray-800 hover:bg-gray-200 hover:",
-                      "rounded-md px-3 py-2 text-sm font-semibold"
+                      "rounded-md px-3 py-2 text-sm font-semibold w-fit"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >

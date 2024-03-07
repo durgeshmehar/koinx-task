@@ -1,21 +1,34 @@
-import { useEffect, useRef,memo } from "react";
+import { useEffect, useState, useRef, memo } from "react";
 import "../styles/Bitcoin.css";
-
+import axios from "axios";
+import { API_URL } from "../common/settings";
+import { FaCaretUp } from "react-icons/fa";
 
 function Bitcoin() {
   const container = useRef();
+  const [bitcoin, setBitcoin] = useState(null);
 
-  useEffect(
-    () => {
-      if (container.current.querySelector('script')) {
-        return;
-      }
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(
+        `${API_URL}/simple/price?ids=bitcoin&vs_currencies=usd,inr&include_24hr_change=true`
+      );
+      setBitcoin(response.data.bitcoin);
+    }
+    fetchData();
+  }, []);
 
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-      script.type = "text/javascript";
-      script.async = true;
-      script.innerHTML = `
+  useEffect(() => {
+    if (container.current.querySelector("script")) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `
         {
           "autosize": true,
           "symbol": "BITSTAMP:BTCUSD",
@@ -32,45 +45,59 @@ function Bitcoin() {
           "hide_volume": true,
           "support_host": "https://www.tradingview.com"
         }`;
-      container.current.appendChild(script);
-    },
-    []
-  );
+    container.current.appendChild(script);
+  }, []);
 
   return (
     <div className="h-fit sm:h-[85vh] lg:h-[95vh] p-4 bg-white rounded-md">
-
       <div className="h-[15vh]">
         <div className="flex justify-start items-center gap-5 text-base ">
-
-          <img src="images/bitcoin.svg" className="h-8 w-8 rounded-full" alt="" />
-          <p className="text-lg font-bold"> Bitcoin</p>
+          <div className="flex gap-2 justify-center items-center">
+            <img
+              src="images/bitcoin.svg"
+              className="h-8 w-8 rounded-full "
+              alt=""
+            />
+            <p className="text-lg sm:text-xl font-bold "> Bitcoin</p>
+          </div>
 
           <p className="font-bold text-gray-500"> BTC</p>
           <button className="p-2 bg-gray-500 rounded-md text-white whitespace-nowrap">
             Rank #1
           </button>
-          
         </div>
 
-        <div className="flex flex-col items-start mt-4 text-xs">
-          <div className=" gap-8 flex justify-center items-center">
-            <div className="text-lg font-bold"> $46,953.04</div>
-            <p className="bg-green-200 text-green-800 flex justify-center items-center px-1 rounded-md"> 2.52%</p>
-            <p className="text-gray-500"> (24H)</p>
-          </div>
-          <div>
-          <div className="text-sm"> &#8377; 39,34,545</div>
-          </div>
-        </div>
+        {bitcoin && (
+          <div className="flex flex-col items-start mt-4 text-xs">
+            <div className=" gap-8 flex justify-center items-center">
+              <div className="text-xl font-bold"> $ {bitcoin.usd}</div>
 
+              <p
+                className={` flex justify-center items-center px-2 py-1 rounded-md ${
+                  bitcoin.usd_24h_change > 0
+                    ? "bg-green-200 text-green-800 "
+                    : "bg-red-200 text-red-800 "
+                }`}
+              >
+               <FaCaretUp />&nbsp; {bitcoin.usd_24h_change.toFixed(3)}
+              </p>
+
+              <p className="text-gray-500"> (24H)</p>
+            </div>
+            <div>
+              <div className="text-sm"> &#8377; {bitcoin.inr}</div>
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="bg-no-repeat row-span-3 h-[80vw] sm:h-[65vh] lg:h-[75vh] mt-1 sm:mt-4 ">
-        <div className="tradingview-widget-container border-none" ref={container} style={{width: "100%",border:"none"}}>
-        </div>
+      <div className="bg-no-repeat row-span-3 h-[80vw] sm:h-[65vh] lg:h-[75vh] mt-0 ">
+        <div
+          className="tradingview-widget-container border-none"
+          ref={container}
+          style={{ width: "100%", border: "none" }}
+        ></div>
       </div>
-
     </div>
   );
 }

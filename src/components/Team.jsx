@@ -1,9 +1,9 @@
 import AlsoLike from "./AlsoLike";
 
-export default function Team() {
+export default function Team( {trends}) {
   return (
     <div className="h-fit p-4 mt-4 bg-white rounded-md">
-      <p className="text-lg font-bold flex justify-start items-center">Team</p>
+      <p className="text-lg sm:text-xl  font-bold flex justify-start items-center">Team</p>
 
       <div>
         <p className="text-gray-600 text-sm my-4">
@@ -91,7 +91,8 @@ export default function Team() {
         </div>
        
       </div>
-      <AlsoLike />
+      {console.log(" Team :", trends )}
+      <AlsoLike trends={trends} />
      
     </div>
   );

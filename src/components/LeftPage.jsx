@@ -21,7 +21,7 @@ const options = [
   ];
 
   
-export default function LeftPage () {
+export default function LeftPage ({trends}) {
     const [selected, setSelected] = useState("overview");
     
   return (
@@ -48,7 +48,7 @@ export default function LeftPage () {
       <Sentiment />
       <AboutBitcoin />
       <Tokenomics />
-      <Team />
+      <Team trends={trends} />
       
     </section>
   );

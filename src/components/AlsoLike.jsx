@@ -43,7 +43,9 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function AlsoLike() {
+
+
+export default function AlsoLike({ trends }) {
   var settings = {
     dots: false,
     infinite: true,
@@ -90,291 +92,117 @@ export default function AlsoLike() {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
-      }
-    ]
+      },
+    ],
   };
 
   return (
-    <div className="flex sm:px-10 flex-col gap-4 sm:absolute left-0 w-full sm:w-[100vw]  p-4 mt-8 bg-white">
-      <p className="text-lg font-bold flex justify-start items-center">
+    <div className="flex flex-col gap-6 sm:absolute left-0 w-full sm:w-[100vw]  p-4 sm:px-[60px]  mt-8 bg-white">
+      <p className="text-lg sm:text-xl font-bold flex justify-start items-center">
         You May Also Like
       </p>
 
-      <div className="first h-30 ">
-        <Slider {...settings}>
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+      <div className="first h-36 whitespace-nowrap">
+        {trends && trends.length > 5 ? (
+          <Slider {...settings}>
+            {trends.slice(7, 14).map((coin, index) => (
+              <div key={index}>
+                <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+                  <div className="flex justify-start items-center gap-2 text-base ">
+                    <img
+                      src={coin.item.thumb}
+                      className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                      alt=""
+                    />
+                    <p className="text-sm sm:text-base font-medium">
+                      {coin.item.name}
+                    </p>
 
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
+                    <p
+                      className={` flex text-sm  justify-start items-center w-16 rounded-md ${
+                        coin.item.data.price_change_percentage_24h.usd.toFixed(
+                          3
+                        ) > 0
+                          ? "bg-green-100 text-green-700 "
+                          : "bg-red-100 text-red-700 "
+                      }`}
+                    >
+                      {coin.item.data.price_change_percentage_24h.usd.toFixed(
+                        3
+                      )}
+                      %
+                    </p>
+                  </div>
 
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
+                  <div className="text-xs">
+                    <p className="text-xs sm:text-lg font-normal mt-2" dangerouslySetInnerHTML={{ __html: coin.item.data.price }}>
+                    </p>
+                  </div>
+
+                  <div>
+                    <img src={coin.item.data.sparkline} alt="" />
+                  </div>
+                </div>
               </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </Slider>
+            ))}
+          </Slider>
+        ) : null}
       </div>
 
-      <div className="second h-30 ">
-      <Slider {...settings}>
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+     
+      <p className="text-lg sm:text-xl font-bold flex justify-start items-center">
+        Trending Coins (24h)
+      </p>
 
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
 
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
+      <div className="first h-36 whitespace-nowrap">
+        {trends && trends.length > 5 ? (
+          <Slider {...settings}>
+            {trends.slice(7, 14).map((coin, index) => (
+              <div key={index}>
+                <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
+                  <div className="flex justify-start items-center gap-2 text-base ">
+                    <img
+                      src={coin.item.thumb}
+                      className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
+                      alt=""
+                    />
+                    <p className="text-sm sm:text-base font-medium">
+                      {coin.item.name}
+                    </p>
+
+                    <p
+                      className={` flex text-sm  justify-start items-center w-16 rounded-md ${
+                        coin.item.data.price_change_percentage_24h.usd.toFixed(
+                          3
+                        ) > 0
+                          ? "bg-green-100 text-green-700 "
+                          : "bg-red-100 text-red-700 "
+                      }`}
+                    >
+                      {coin.item.data.price_change_percentage_24h.usd.toFixed(
+                        3
+                      )}
+                      %
+                    </p>
+                  </div>
+
+                  <div className="text-xs">
+                    <p className="text-xs sm:text-lg font-normal mt-2" dangerouslySetInnerHTML={{ __html: coin.item.data.price }}>
+                    </p>
+                  </div>
+
+                  <div>
+                    <img src={coin.item.data.sparkline} alt="" />
+                  </div>
+                </div>
               </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
-
-              <div className="flex justify-start items-center gap-1 text-base ">
-                <img
-                  src="images/bitcoin.svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
-                  alt=""
-                />
-                <p className="text-sm sm:text-lg font-medium"> Bitcoin</p>
-
-                <p className=" text-green-800 flex text-xs sm:text-sm justify-center items-center px-1 rounded-md">
-                  {" "}
-                  2.52%
-                </p>
-              </div>
-
-              <div className="text-xs">
-                <p className="text-sm sm:text-lg font-semibold"> $46,953.04</p>
-              </div>
-
-              <div>
-                <img src="images/graph1.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </Slider>
+            ))}
+          </Slider>
+        ) : null}
       </div>
+
+     
 
 
     </div>

@@ -3,7 +3,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 function AboutBitcoin() {
   return (
     <div className="h-fit p-4 mt-4 bg-white rounded-md">
-      <p className="text-lg font-bold flex justify-start items-center">
+      <p className="text-lg sm:text-xl  font-bold flex justify-start items-center">
         About Bitcoin
       </p>
 

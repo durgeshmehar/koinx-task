@@ -1,9 +1,8 @@
-import React from "react";
 
 export default function Tokenomics() {
   return (
     <div className="h-fit p-4 mt-4 bg-white rounded-md">
-      <p className="text-lg font-bold flex justify-start items-center">
+      <p className="text-lg  sm:text-xl font-bold flex justify-start items-center">
         Tokenomics
       </p>
 
