@@ -2,6 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 // Custom arrow components
 function SampleNextArrow(props) {
@@ -46,6 +47,7 @@ function SamplePrevArrow(props) {
 
 
 export default function AlsoLike({ trends }) {
+  const navigate = useNavigate();
   var settings = {
     dots: false,
     infinite: true,
@@ -109,6 +111,7 @@ export default function AlsoLike({ trends }) {
               <div key={index}>
                 <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
                   <div className="flex justify-start items-center gap-2 text-base ">
+                  <div className="flex justify-center items-center cursor-pointer gap-1" onClick={()=>{navigate(`/${coin.item.id}`) }} >
                     <img
                       src={coin.item.thumb}
                       className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
@@ -117,6 +120,7 @@ export default function AlsoLike({ trends }) {
                     <p className="text-sm sm:text-base font-medium">
                       {coin.item.name}
                     </p>
+                    </div>
 
                     <p
                       className={` flex text-sm  justify-start items-center w-16 rounded-md ${
@@ -158,10 +162,12 @@ export default function AlsoLike({ trends }) {
       <div className="first h-36 whitespace-nowrap">
         {trends && trends.length > 5 ? (
           <Slider {...settings}>
-            {trends.slice(7, 14).map((coin, index) => (
+            {trends.slice(0, 7).map((coin, index) => (
               <div key={index}>
                 <div className="rounded-md flex flex-col justify-start p-2 sm:p-4 mr-2 border-0.3  border-gray-200">
                   <div className="flex justify-start items-center gap-2 text-base ">
+                  <div className="flex justify-center items-center cursor-pointer gap-1" onClick={()=>{navigate(`/${coin.item.id}`) }} >
+
                     <img
                       src={coin.item.thumb}
                       className="h-5 w-5 sm:h-6 sm:w-6 rounded-full"
@@ -170,6 +176,7 @@ export default function AlsoLike({ trends }) {
                     <p className="text-sm sm:text-base font-medium">
                       {coin.item.name}
                     </p>
+                  </div>
 
                     <p
                       className={` flex text-sm  justify-start items-center w-16 rounded-md ${

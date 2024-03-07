@@ -1,6 +1,8 @@
 import { FaLongArrowAltRight, FaCaretUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function RightPage({ trends }) {
+  const navigate = useNavigate();
 
 
   return (
@@ -33,7 +35,8 @@ export default function RightPage({ trends }) {
             {trends &&
               trends.slice(0, 3).map((coin, index) => (
                 <div key={index} className="flex justify-between">
-                  <div className="flex gap-2">
+
+                  <div className="flex gap-2 cursor-pointer" onClick={()=>{navigate(`/${coin.item.id}`) }} >
                     <img
                       src={coin.item.thumb}
                       className="h-6 w-6 rounded-full"

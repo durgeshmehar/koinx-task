@@ -3,23 +3,8 @@ import Navbar from "../common/Navbar";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import LeftPage from "../components/LeftPage";
 import RightPage from "../components/RightPage";
-import { useState ,useEffect } from "react";
-import axios from "axios";
-import { API_URL } from "../common/settings";
 
-export default function Home() {
-  const [trends , setTrends] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get(
-        `${API_URL}/search/trending`
-      );
-      setTrends(response.data.coins);
-    }
-    fetchData();
-  }, []);
-
+export default function Home({trends}) {
 
   return (
     <>

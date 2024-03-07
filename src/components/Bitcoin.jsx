@@ -3,8 +3,10 @@ import "../styles/Bitcoin.css";
 import axios from "axios";
 import { API_URL } from "../common/settings";
 import { FaCaretUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Bitcoin() {
+  const navigate = useNavigate();
   const container = useRef();
   const [bitcoin, setBitcoin] = useState(null);
 
@@ -52,7 +54,7 @@ function Bitcoin() {
     <div className="h-fit sm:h-[85vh] lg:h-[95vh] p-4 bg-white rounded-md">
       <div className="h-[15vh]">
         <div className="flex justify-start items-center gap-5 text-base ">
-          <div className="flex gap-2 justify-center items-center">
+          <div className="flex gap-2 justify-center items-center cursor-pointer" onClick={ ()=>{navigate(`/bitcoin`) } } >
             <img
               src="images/bitcoin.svg"
               className="h-8 w-8 rounded-full "

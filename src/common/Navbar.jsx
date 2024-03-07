@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const navigation = [
   { name: "Crypto taxes", href: "#", current: false },
@@ -13,6 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <>
       <Disclosure as="nav" className="bg-white">
@@ -21,7 +23,7 @@ export default function Navbar() {
             <div className="mx-[30px] sm:mx-[60px] sm:px-0 lg:px-0">
               <div className="relative flex h-16 items-center justify-between">
                 <div className="flex flex-1 items-center sm:items-stretch justify-between pl-4 sm:pl-0">
-                  <div className="flex flex-shrink-0 items-center">
+                  <div className="flex flex-shrink-0 items-center cursor-pointer" onClick={()=>{navigate("/")}}>
                     <img
                       className="h-10 w-auto"
                       src="/images/koinx.svg"
@@ -52,8 +54,8 @@ export default function Navbar() {
 
                 <div className="sm:hidden inset-y-0 right-0 flex items-center sm:ml-6 sm:pr-0">
                   {/* Bar open close */}
-                  <Disclosure.Button className=" inline-flex items-center justify-center rounded-md p-2 text-gray-800 hover:bg-gray-200 hover: focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                    <span className="absolute -inset-0.5" />
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-800 hover:bg-gray-200 hover: focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
+                    {/* <span className="absolute -inset-0.5" /> */}
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <FaTimes className="block h-6 w-6" aria-hidden="true" />
@@ -62,6 +64,7 @@ export default function Navbar() {
                     )}
                   </Disclosure.Button>
                 </div>
+
               </div>
             </div>
 
